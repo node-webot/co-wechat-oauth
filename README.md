@@ -1,4 +1,4 @@
-# co-wechat-oauth
+co-wechat-oauth
 ===============
 Wechat OAuth for ES6。微信公共平台OAuth接口消息接口服务中间件与API SDK
 
