@@ -65,9 +65,9 @@ var url = client.getAuthorizeURLForWebsite('redirectUrl');
 用户点击上步生成的URL后会被重定向到上步设置的 `redirectUrl`，并且会带有`code`参数，我们可以使用这个`code`换取`access_token`和用户的`openid`
 
 ```js
-var data = yield client.getAccessToken('code');
-var accessToken = data.access_token;
-var openid = data.openid;
+var token = yield client.getAccessToken('code');
+var accessToken = token.data.access_token;
+var openid = token.data.openid;
 ```
 
 ### 获取用户信息
