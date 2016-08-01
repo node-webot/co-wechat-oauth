@@ -37,11 +37,11 @@ var client = new OAuth('your appid', 'your secret');
 当多进程时，token需要全局维护，以下为保存token的接口。
 
 ```js
-var oauthApi = new OAuth('appid', 'secret', function * (openid) {
+var oauthApi = new OAuth('appid', 'secret', function* (openid) {
   // 传入一个根据openid获取对应的全局token的方法
   var txt = yield fs.readFile(openid +':access_token.txt', 'utf8');
   return JSON.parse(txt);
-}, function (openid, token) {
+}, function* (openid, token) {
   // 请将token存储到全局，跨进程、跨机器级别的全局，比如写到数据库、redis等
   // 这样才能在cluster模式及多机情况下使用，以下为写入到文件的示例
   // 持久化时请注意，每个openid都对应一个唯一的token!
