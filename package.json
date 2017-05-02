@@ -1,8 +1,8 @@
 {
   "name": "co-wechat-oauth",
-  "version": "1.0.1",
-  "description": "Co版微信公共平台OAuth",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Co 版微信公共平台 OAuth",
+  "main": "lib/oauth.js",
   "scripts": {
     "test": "make test-all"
   },
@@ -15,17 +15,18 @@
     "wechat"
   ],
   "dependencies": {
-    "urllib": "2.4.0"
+    "httpx": "^2.1.1"
   },
   "devDependencies": {
-    "supertest": "*",
-    "mocha": "*",
-    "expect.js": "*",
     "coveralls": "*",
+    "expect.js": "*",
+    "istanbul": "*",
+    "mocha": "*",
     "mocha-lcov-reporter": "*",
     "muk": "*",
+    "nyc": "^10.3.0",
     "rewire": "*",
-    "istanbul": "*"
+    "supertest": "*"
   },
   "author": "Jackson Tian",
   "license": "MIT",
