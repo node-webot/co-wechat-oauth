@@ -33,5 +33,6 @@
   "readmeFilename": "README.md",
   "directories": {
     "test": "test"
-  }
+  },
+  "files": ["lib"]
 }
