@@ -7,13 +7,13 @@ PATH := ./node_modules/.bin:$(PATH)
 lint:
 	@eslint --fix lib index.js test
 
-test: lint
-	@mocha -t $(TIMEOUT) -R spec $(TESTS)
+test:
+	@mocha -t $(TIMEOUT) -b -R spec $(TESTS)
 
 test-cov:
 	@nyc --reporter=html --reporter=text mocha -t $(TIMEOUT) -R spec $(TESTS)
 
-test-coveralls:
+test-coveralls: lint
 	@nyc mocha -t $(TIMEOUT) -R spec $(TESTS)
 	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
 	@nyc report --reporter=text-lcov | coveralls

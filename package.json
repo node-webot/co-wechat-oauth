@@ -21,6 +21,7 @@
     "coveralls": "*",
     "expect.js": "*",
     "istanbul": "*",
+    "kitx": "^1.2.0",
     "mocha": "*",
     "mocha-lcov-reporter": "*",
     "muk": "*",
@@ -34,5 +35,7 @@
   "directories": {
     "test": "test"
   },
-  "files": ["lib"]
+  "files": [
+    "lib"
+  ]
 }
