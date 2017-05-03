@@ -1,5 +1,6 @@
 co-wechat-oauth
 ===============
+
 Wechat OAuth for ES6。微信公共平台OAuth接口消息接口服务中间件与API SDK
 
 ## 模块状态
@@ -10,6 +11,7 @@ Wechat OAuth for ES6。微信公共平台OAuth接口消息接口服务中间件�
 - [![Coverage Status](https://coveralls.io/repos/node-webot/co-wechat-oauth/badge.png)](https://coveralls.io/r/node-webot/co-wechat-oauth)
 
 ## 功能列表
+
 - OAuth授权
 - 获取基本信息
 
@@ -26,6 +28,7 @@ $ npm install co-wechat-oauth
 ## Usage
 
 ### 初始化
+
 引入OAuth并实例化
 
 ```js
@@ -98,12 +101,14 @@ QQ群：157964097，使用疑问，开发，贡献代码请加群。
 $ git summary
 
  project  : co-wechat-oauth
- repo age : 55 minutes
- active   : 1 days
- commits  : 2
- files    : 7
+ repo age : 1 year, 8 months
+ active   : 8 days
+ commits  : 16
+ files    : 11
  authors  :
-     2  Jackson Tian  100.0%
+    13  Jackson Tian  81.2%
+     2  linkkingjay   12.5%
+     1  wangxiuwen    6.2%
 
 ```
 
