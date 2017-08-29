@@ -29,7 +29,7 @@ $ npm install co-wechat-oauth
 
 ### 初始化
 
-引入OAuth并实例化
+引入 OAuth 并实例化
 
 ```js
 var OAuth = require('co-wechat-oauth');
@@ -37,35 +37,44 @@ var client = new OAuth('your appid', 'your secret');
 ```
 
 以上即可满足单进程使用。
-当多进程时，token需要全局维护，以下为保存token的接口。
+当多进程时，token 需要全局维护，以下为保存 token 的接口。
 
 ```js
+const util = require('util');
+const fs = require('fs');
+
+const readFile = util.promisify(fs.readFile);
+const writeFile = util.promisify(fs.writeFile);
+
 var oauthApi = new OAuth('appid', 'secret', async function (openid) {
-  // 传入一个根据openid获取对应的全局token的方法
-  var txt = await fs.readFile(openid +':access_token.txt', 'utf8');
+  // 传入一个根据 openid 获取对应的全局 token 的方法
+  var txt = await readFile(openid +':access_token.txt', 'utf8');
   return JSON.parse(txt);
 }, async function (openid, token) {
-  // 请将token存储到全局，跨进程、跨机器级别的全局，比如写到数据库、redis等
-  // 这样才能在cluster模式及多机情况下使用，以下为写入到文件的示例
+  // 请将 token 存储到全局，跨进程、跨机器级别的全局，比如写到数据库、redis 等
+  // 这样才能在 cluster 模式及多机情况下使用，以下为写入到文件的示例
   // 持久化时请注意，每个openid都对应一个唯一的token!
-  await fs.writeFile(openid + ':access_token.txt', JSON.stringify(token));
+  await writeFile(openid + ':access_token.txt', JSON.stringify(token));
 });
 ```
 
 ### 引导用户
-生成引导用户点击的URL。
+
+生成引导用户点击的 URL。
 
 ```js
 var url = client.getAuthorizeURL('redirectUrl', 'state', 'scope');
 ```
 
 如果是PC上的网页，请使用以下方式生成
+
 ```js
 var url = client.getAuthorizeURLForWebsite('redirectUrl');
 ```
 
-### 获取Openid和AccessToken
-用户点击上步生成的URL后会被重定向到上步设置的 `redirectUrl`，并且会带有`code`参数，我们可以使用这个`code`换取`access_token`和用户的`openid`
+### 获取 Openid 和 AccessToken
+
+用户点击上步生成的 URL 后会被重定向到上步设置的 `redirectUrl`，并且会带有 `code` 参数，我们可以使用这个 `code` 换取 `access_token` 和用户的`openid`
 
 ```js
 async function () {
@@ -75,12 +84,15 @@ async function () {
 }
 ```
 
+> 注意，因为经常会因为浏览器的后退，导致生成的地址被反复访问，这会导致 code 被反复使用而出现错误。在这一步，最佳实践是使用完 code 之后，就将用户的信息存到 session 中。再进入这个页面时，直接使用 session 中的数据。
+
 ### 获取用户信息
-如果我们生成引导用户点击的URL中`scope`参数值为`snsapi_userinfo`，接下来我们就可以使用`openid`换取用户详细信息（必须在getAccessToken方法执行完成之后）
+
+如果我们生成引导用户点击的 URL 中 `scope` 参数值为 `snsapi_userinfo`，接下来我们就可以使用 `openid` 换取用户详细信息（必须在 getAccessToken 方法执行完成之后）
 
 ```js
 async function () {
-  var userInfo = yield client.getUser('openid');
+  var userInfo = await client.getUser('openid');
 }
 ```
 
