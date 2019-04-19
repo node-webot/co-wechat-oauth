@@ -15,7 +15,8 @@
     "wechat"
   ],
   "dependencies": {
-    "httpx": "^2.1.1"
+    "httpx": "^2.1.1",
+    "wechat-oauth": "^1.5.0"
   },
   "devDependencies": {
     "coveralls": "*",
