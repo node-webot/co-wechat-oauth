@@ -1,15 +1,15 @@
 {
-  "name": "co-wechat-oauth",
-  "version": "2.0.1",
+  "name": "@jonham/co-wechat-oauth",
+  "version": "2.0.4",
   "description": "Co 版微信公共平台 OAuth",
   "main": "lib/oauth.js",
-  "types": "./index.d.ts",
+  "types": "lib/oauth.d.ts",
   "scripts": {
     "test": "make test-all"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/node-webot/co-wechat-oauth.git"
+    "url": "git@github.com:Jonham/co-wechat-oauth.git"
   },
   "keywords": [
     "weixin",
@@ -32,11 +32,15 @@
   },
   "author": "Jackson Tian",
   "license": "MIT",
-  "readmeFilename": "README.md",
   "directories": {
+    "lib": "lib",
     "test": "test"
   },
   "files": [
     "lib"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/Jonham/co-wechat-oauth/issues"
+  },
+  "homepage": "https://github.com/Jonham/co-wechat-oauth#readme"
 }
