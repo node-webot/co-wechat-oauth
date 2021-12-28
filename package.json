@@ -1,9 +1,9 @@
 {
   "name": "co-wechat-oauth",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Co 版微信公共平台 OAuth",
   "main": "lib/oauth.js",
-  "types": "./index.d.ts",
+  "types": "lib/oauth.d.ts",
   "scripts": {
     "test": "make test-all"
   },
