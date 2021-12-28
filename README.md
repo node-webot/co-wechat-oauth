@@ -2,8 +2,8 @@ co-wechat-oauth
 ===============
 
 Wechat OAuth for ES6。微信公共平台OAuth接口消息接口服务中间件与API SDK
-> 已增加`index.d.ts`，支持类型推断、支持TypeScript使用。
-> 可以直接在package.json中，增加`"co-wechat-oauth": "https://github.com/Jonham/co-wechat-oauth.git"`依赖，直接再`yarn`或`npm install`处理以来即可。
+> 已增加`lib/oauth.d.ts`，支持类型推断、支持TypeScript使用。
+> 使用：`yarn add @jonham/co-wechat-oauth` 或 `npm install @jonham/co-wechat-oauth`
 
 ## 模块状态
 
